@@ -3,8 +3,20 @@
   <groupId>com.codegen</groupId>
   <artifactId>CodeGenerator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-  <dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
   	<!-- 日志依赖 -->
   	<dependency>
 	    <groupId>org.slf4j</groupId>

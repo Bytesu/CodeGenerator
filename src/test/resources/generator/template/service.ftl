@@ -1,6 +1,6 @@
 package ${basePackage}.service.${sign};
-import ${basePackage}.model.${sign}.${modelNameUpperCamel};
-import ${basePackage}.service.Service;
+import ${basePackage}.entity.${sign}.${modelNameUpperCamel};
+import ${serviceInterfaceReference};
 
 /**
  *

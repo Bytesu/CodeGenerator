@@ -1,6 +1,6 @@
-package ${basePackage}.web.controller.${sign};
-import ${basePackage}.entity.${sign}.${modelNameUpperCamel};
-import ${basePackage}.service.${sign}.${modelNameUpperCamel}Service;
+package com.test.web.controller.demo;
+import com.test.entity.demo.TestDemoUser;
+import com.test.service.demo.TestDemoUserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,48 +13,48 @@ import java.util.List;
 
 /**
  *
- * Created by ${author} on ${date}.
+ * Created by byte_su@163.com on 2017/11/25.
  */
 @Controller
-@RequestMapping("/${baseRequestMapping}/")
-public class ${modelNameUpperCamel}Controller {
+@RequestMapping("/testDemoUser/")
+public class TestDemoUserController {
 
     @Autowired
-    ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
+    TestDemoUserService testDemoUserService;
 
     @RequestMapping("add")
     @ResponseBody
-    public String add(${modelNameUpperCamel} ${modelNameLowerCamel}) {
-        ${modelNameLowerCamel}Service.save(${modelNameLowerCamel});
+    public String add(TestDemoUser testDemoUser) {
+        testDemoUserService.save(testDemoUser);
         return "";
     }
 
     @RequestMapping("delete")
     @ResponseBody
     public String delete(@RequestParam Integer id) {
-	    ${modelNameLowerCamel}Service.deleteById(id);
+	    testDemoUserService.deleteById(id);
 	    return "";
     }
 
     @RequestMapping("update")
     @ResponseBody
-    public String update(${modelNameUpperCamel} ${modelNameLowerCamel}) {
-	    ${modelNameLowerCamel}Service.update(${modelNameLowerCamel});
+    public String update(TestDemoUser testDemoUser) {
+	    testDemoUserService.update(testDemoUser);
 	    return "";
     }
 
     @RequestMapping("detail")
     @ResponseBody
     public String detail(@RequestParam Integer id) {
-        ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameLowerCamel}Service.findById(id);
-        return ${modelNameLowerCamel}.toString();
+        TestDemoUser testDemoUser = testDemoUserService.findById(id);
+        return testDemoUser.toString();
     }
 
     @RequestMapping("list")
     @ResponseBody
     public String list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
+        List<TestDemoUser> list = testDemoUserService.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return list.toString();
     }

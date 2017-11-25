@@ -91,6 +91,8 @@ genCodeWithSimpleName("gen_test_demo");<br/>
 genCodeWithDetailName("gen_test_demo");<br/>
 - gen_test_demo ==> IDemo 自定义名称<br/>
 genCodeWithCustomName("gen_test_demo", "IDemo");<br/>
+- 默认将包含下划线的表名称转化为大驼峰实体
+getCodeWithDefault("gen_test_demo");<br/>
 
 #### 模板样式修改
 如果需要生成自己所需的 Controller & Service & ServiceImpl 样式<br/>
@@ -122,8 +124,6 @@ genCodeWithCustomName("gen_test_demo", "IDemo");<br/>
 
 <br /><br />
 
-## 加入我们一起交流学习吧!
-<div class="text-center">
-	Github交流群：
-	<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=fc6d021a1e1d1155847180863178d3b8111783f33abf6cfda0efe998e209a454"><img border="0" src="https://github.com/zhaohaihao/Java-Design-Patterns/blob/master/group.png" alt="Github交流群" title="Github交流群"></a>
-</div>
+
+## 测试表数据
+1. src/test/resources/test_demo_user.sql

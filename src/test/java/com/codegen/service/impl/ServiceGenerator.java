@@ -57,14 +57,16 @@ public class ServiceGenerator extends CodeGeneratorManager implements CodeGenera
 	 * @return
 	 */
 	private Map<String, Object> getDataMapInit(String modelName, String sign, String modelNameUpperCamel) {
-		Map<String, Object> data = new HashMap<>();
+		Map<String, Object> data = new HashMap();
 		data.put("date", DATE);
 		data.put("author", AUTHOR);
 		data.put("sign", sign);
 		data.put("modelNameUpperCamel", modelNameUpperCamel);
 		data.put("modelNameLowerCamel", StringUtils.toLowerCaseFirstOne(modelNameUpperCamel));
 		data.put("basePackage", BASE_PACKAGE);
-		
+		data.put("serviceInterfaceReference", SERVICE_INTERFACE_REFERENCE);
+		data.put("ABSTRACT_SERVICE_CLASS_REFERENCE", ABSTRACT_SERVICE_CLASS_REFERENCE);
+
 		return data;
 	}
 }

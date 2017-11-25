@@ -46,7 +46,7 @@ public class ControllerGenerator extends CodeGeneratorManager implements CodeGen
 	 * @return
 	 */
 	private Map<String, Object> getDataMapInit(String tableName, String modelName, String sign, String modelNameUpperCamel) {
-		Map<String, Object> data = new HashMap<>();
+		Map<String, Object> data = new HashMap();
 		data.put("date", DATE);
         data.put("author", AUTHOR);
         data.put("sign", sign);

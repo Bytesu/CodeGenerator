@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 
@@ -107,8 +108,13 @@ public class CodeGeneratorManager extends CodeGeneratorConfig {
 	 * @param tableName 表名, 只能单表
 	 */
 	public void genCodeWithCustomName(String tableName, String customModelName) {
+		System.out.println(customModelName);
 		genCodeByTableName(tableName, customModelName, false);
 	}
+	public void genCodeWithDefault(String ...tableNames) {
+		Arrays.stream(tableNames).forEach(tableName->this.genCodeWithCustomName(tableName,this.tableNameConvertUpperCamel(tableName)));
+	}
+
 	
 	/**
 	 * 下划线转成驼峰, 首字符为小写
@@ -126,7 +132,7 @@ public class CodeGeneratorManager extends CodeGeneratorConfig {
 	 * @param tableName 表名, eg: gen_test_demo
 	 * @return
 	 */
-	protected String tableNameConvertUpperCamel(String tableName) {
+	public String tableNameConvertUpperCamel(String tableName) {
 		return CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, tableName.toLowerCase());
 	}
 	
@@ -182,7 +188,7 @@ public class CodeGeneratorManager extends CodeGeneratorConfig {
 	 */
 	private String[] getTableNameSplit(String tableName) {
 		String[] strs = tableName.split("_");
-		if (!tableName.contains("_") || strs.length < 3) {
+		if (!tableName.contains("_") ) {
 			throw new RuntimeException("表名格式不正确, 请按规定格式! 例如: gen_test_demo");
 		}
 		return strs;
