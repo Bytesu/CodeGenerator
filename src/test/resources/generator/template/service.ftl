@@ -1,5 +1,5 @@
-package ${basePackage}.service.${sign};
-import ${basePackage}.entity.${sign}.${modelNameUpperCamel};
+package ${basePackage}.service<#if (sign??||sign=="")>.${sign}</#if> ;
+import ${basePackage}.entity<#if (sign!=null||sign=="")>.${sign}</#if>.${modelNameUpperCamel};
 import ${serviceInterfaceReference};
 
 /**

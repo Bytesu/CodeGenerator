@@ -1,6 +1,6 @@
-package ${basePackage}.controller<#if (sign!=null||sign=="")>.${sign}</#if>;
-import ${basePackage}.entity<#if (sign!=null||sign=="")>.${sign}</#if>.${modelNameUpperCamel};
-import ${basePackage}.service<#if (sign!=null||sign=="")>.${sign}</#if>.${modelNameUpperCamel}Service;
+package com.test.controller;
+import com.test.entity.UserTestCopy;
+import com.test.service.UserTestCopyService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,48 +13,48 @@ import java.util.List;
 
 /**
  *
- * Created by ${author} on ${date}.
+ * Created by byte_su@163.com on 2017/11/26.
  */
 @Controller
-@RequestMapping("/${baseRequestMapping}/")
-public class ${modelNameUpperCamel}Controller {
+@RequestMapping("/userTestCopy/")
+public class UserTestCopyController {
 
     @Autowired
-    ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
+    UserTestCopyService userTestCopyService;
 
     @RequestMapping("add")
     @ResponseBody
-    public String add(${modelNameUpperCamel} ${modelNameLowerCamel}) {
-        ${modelNameLowerCamel}Service.save(${modelNameLowerCamel});
+    public String add(UserTestCopy userTestCopy) {
+        userTestCopyService.save(userTestCopy);
         return "";
     }
 
     @RequestMapping("delete")
     @ResponseBody
     public String delete(@RequestParam Integer id) {
-	    ${modelNameLowerCamel}Service.deleteById(id);
+	    userTestCopyService.deleteById(id);
 	    return "";
     }
 
     @RequestMapping("update")
     @ResponseBody
-    public String update(${modelNameUpperCamel} ${modelNameLowerCamel}) {
-	    ${modelNameLowerCamel}Service.update(${modelNameLowerCamel});
+    public String update(UserTestCopy userTestCopy) {
+	    userTestCopyService.update(userTestCopy);
 	    return "";
     }
 
     @RequestMapping("detail")
     @ResponseBody
     public String detail(@RequestParam Integer id) {
-        ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameLowerCamel}Service.findById(id);
-        return ${modelNameLowerCamel}.toString();
+        UserTestCopy userTestCopy = userTestCopyService.findById(id);
+        return userTestCopy.toString();
     }
 
     @RequestMapping("list")
     @ResponseBody
     public String list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
+        List<UserTestCopy> list = userTestCopyService.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return list.toString();
     }

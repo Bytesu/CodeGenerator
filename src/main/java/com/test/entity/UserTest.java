@@ -1,10 +1,10 @@
-package com.test.entity.demo;
+package com.test.entity;
 
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "test_demo_user")
-public class TestDemoUser {
+@Table(name = "user_test")
+public class UserTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
